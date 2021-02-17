@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="title"></h1>
+        <button id="button">Yes</button>
+        <button id="button2">No</button>
+    </div>
+    <div id="button-colors">
+
+    </div>
+    <script>
+        function change() {
+            document.getElementById("title").innerHTML = 'Yes';
+        }
+        document.getElementById("button").onclick = function(){
+            change();
+        }
+        function change2() {
+            document.getElementById("title").innerHTML = 'No';
+        }
+        document.getElementById("button2").onclick = function() {
+            change2();
+        }
+        if(change){
+            function buttonColor() {
+                let tagDiv = document.getElementById('button-colors')
+                let buttonOne = document.createElement("button")
+                buttonOne.setAttribute("id", "button-color-blue")
+                buttonOne.innerHTML = "Blue";
+                buttonOne.onclick = function() {
+                    document.getElementById("title").style.color = '#0000FF';
+                }
+                tagDiv.append(buttonOne)
+            }
+            document.getElementById("button").onclick = function() {
+                buttonColor(); change();
+            }
+        }
+
+        if(change2){
+            function buttonColorTwo() {
+                let tagDivTwo = document.getElementById('button-colors')
+                let buttonTwo = document.createElement("button")
+                buttonTwo.setAttribute("id", "button-color-orange")
+                buttonTwo.innerHTML = "Orange";
+                buttonTwo.onclick = function() {
+                    document.getElementById("title").style.color = '#FFA500';
+                }
+                tagDivTwo.append(buttonTwo)
+            }
+            document.getElementById("button2").onclick = function() {
+                buttonColorTwo(); change2();
+            }
+        }
+        </script>
+</body>
+</html>
